@@ -10,8 +10,6 @@ let reminder="";
 let currentamount;
 let i="";
 var value="";
-let keys="";
-let values="";
 
 currencyarr.sort( function( b,a){
   if(a > b) return 1;
@@ -34,8 +32,6 @@ handleChange(event){
     currentamount="";
     i="";
     value="";
-    keys="";
-    values="";
     console.log(event.target);
     value=event.target.value;
     this.setState({
@@ -70,9 +66,6 @@ if (currencyarr[i]<= currentamount && (reminder ==="" || reminder !==0))
 }
 
 }
-console.log(denominations)
-keys=Object.keys(denominations);
-values=Object.values(denominations);
 this.setState({
   currencydenominations:Object.entries(denominations).map(([key,value])=>{
          return (  <Results currency={key} number= {value.toString()}/>)
