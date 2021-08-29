@@ -1,4 +1,3 @@
-
 import './App.css';
 import React,{Component} from 'react'
 import Results from './Result';
@@ -32,6 +31,7 @@ class App extends Component {
       this.handleSubmit=this.handleSubmit.bind(this)
   }
 handleChange(event){
+  
     value=event.target.value;
     label=event.target.name;
     this.setState({
@@ -50,7 +50,12 @@ handleChange(event){
     
   }
 //****************************************Logic Start*********************************************************
-handleSubmit(){
+handleSubmit(e){
+  
+  e.preventDefault();
+  // document.getElementById("backdrop").style.display = "block";
+  document.getElementById("myModal").style.display = "block";
+  document.getElementById("myModal").classList.add("show")
   denominations={};
   quotient="";
     reminder="";
@@ -99,13 +104,11 @@ handleSubmit(){
       console.log(denominations);
     }
   }
-  const element=document.getElementById("receivedamount")
-  element.value=28;
   // console.log(element.value={amountreceived})
 }
 //*****************************************Logic Finished************************************************* */
 render(){
-function RcvdAmountContainer(props){ 
+  function RcvdAmountContainer(props){ 
   const amountbilled=props.amountbilled;
   if(amountbilled=="")
   {
@@ -115,49 +118,63 @@ function RcvdAmountContainer(props){
   }
   else{
     return(
-        <div>
-
+        <tr>
+              <td>
               <label for="receivedamount">Enter the Received Amount:</label>
-              <input className="input" id="receivedamount" type="number" name="receivedamount" 
-               ref={props.receivedInput} 
+              </td>
+              <td>
+              <input className="form-control" id="receivedamount" type="number" name="receivedamount" 
+               ref={props.receivedInput} required
                ></input>
-              <button className="btn btn-primary" onClick={props.handleSubmit}>Submit</button>
+              </td>
               
-        </div>
+              
+        </tr>
     )
   }
 }
   return (
-    <div className="App">
-      <div className="container-center">
-        <div className="interface">
-          <h1>The Cash Counter</h1>
-          <table className="input-table">
-            <tr>
-              <td >
-                <label for="billamount">Enter the Total Bill Amount:</label>
-                <input className="input" id="billamount" type="number" onChange={this.handleChange} name="billamount" value={this.state.billamount}></input>               
-              </td>
-              <td >
+    <div className="App d-flex justify-content-center align-items-center">
+      <div className="container d-flex justify-content-center align-items-center ">
+      <div className="row ">
+      <form onSubmit={this.handleSubmit} className="form-group inputs p-3 ">
+        <h3>Inputs</h3>
+        <table className="table  table-striped"> 
+          <thead>
+              <tr>
+                <td>
+                <label for="billamount">Enter the Total Bill Amount</label>
+                </td>
+                <td align="left">
+                <input className="form-control" id="billamount" type="number" onChange={this.handleChange} name="billamount" value={this.state.billamount} required></input>
+                </td>
+              </tr>
                 <RcvdAmountContainer 
-                amountbilled={this.state.billamount} 
-                handleSubmit={this.handleSubmit}
-                receivedamount={this.state.receivedamount}
-                />
-              </td>
-            </tr>
-              
-                Remaining Amount={differenceamount}
-    
-          </table>      
-          <h1>{this.state.receivedamount}</h1>
-          <div className="result-container">
+                  amountbilled={this.state.billamount} 
+                  handleSubmit={this.handleSubmit}
+                  receivedamount={this.state.receivedamount}
+                  />
+                  <tr>
+                  <button className="btn btn-primary ml-3" >Submit</button>
+                  </tr>
+          </thead>
+        </table>
+      </form>
+      <div className="results  p-3">
+        <h3>Denominations</h3>
+        <table className="table table-striped">
+          <tbody>
           {this.state.currencydenominations}
-          </div>
-        </div>
+          </tbody>
+        </table>
       </div>
-    </div>
+      </div>
+      </div>
+      
+      
+    
+      </div>
+   
   )}
-}
-
-export default App;
+    };
+export default App

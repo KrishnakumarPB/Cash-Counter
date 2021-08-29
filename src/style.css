@@ -1,95 +1,29 @@
-.container-center{
-    height:100vh;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.interface
+.container
 {
-    background: rgba(255, 255, 255, 0.116);
-    /* background: linear-gradient(90deg, rgba(233,136,106,1) 0%, rgba(233,154,42,1) 33%, rgba(236,180,10,1) 80%); */
-/* background: linear-gradient(90deg, rgba(226,185,108,1) 0%, rgba(233,151,42,1) 33%, rgba(227,236,10,1) 80%); */
-    height:90vh;
-    width:50%;
-    border-radius: 15px;
-    border:2px solid white;
-    justify-content: center;
-    position: absolute;
-
+    height: 100vh;
+    justify-items: space-between ;
 }
-.interface >h1
+.inputs
 {
-color: #ffffff;
-font-size: 32px;
-font-weight: 700;
-text-decoration: underline;
-}
-.btn-primary
-{
-    margin-left: 20px;
-}
-.input-table
-{
-    margin-left: 5px;
-    color: white;
-    display: flex;
-    flex-wrap: wrap;
-}
-.input
-{
-    margin-left: 10px;
-    margin-top: 10px;
-    height:40px;
-    width:75px;
-    border:  3px solid rgb(255, 255, 253);
+    background-color: white;
+    height: 25rem;
+    width: 32rem;
     border-radius: 5px;
-    color:black;
-    border-style:double;
-    font-size: 20px;
-    font-weight: 600;
-    text-align: center;
 }
-input:focus, textarea:focus, select:focus{
-    outline: none;
-}
-input[type=number] {
-    -moz-appearance: textfield;
-  }
-  input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-.no-outline:focus {
-    outline: none;
-  }
-.result-container
+.results
 {
-position:initial;
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column-reverse;
+    position: relative;
+    height: 25rem;
+    min-width: 32rem;
+    background-color: white;
+    margin-left: 2rem;
+    border-radius: 5px;
+}
+tr{
+    max-width:0px;
+}
 
-}
-.result{
-    margin-top: 3px;
-    display: flex;
-    background-color: rgba(255, 255, 255, 0.24);
-    width:100%;
-    justify-content: center;
-    text-align:justify
-}
-.currency
+.form-control
 {
-    font-size: 30px;
-    color:rgb(252, 252, 252);
-    font-weight:500;
-}
-.number
-{
-    color:rgb(255, 255, 255);
-    font-size: 30px;
-    font-weight:500;
+    /* width: 55px; */
 }
