@@ -11,7 +11,6 @@ let i="";
 var value="";
 var label="";
 let amountreceived=""
-let differenceamount="";
 
 currencyarr.sort( function( b,a){
   if(a > b) return 1;
@@ -38,7 +37,7 @@ handleChange(event){
       [label]:value ,
       currencydenominations:""
     })
-    if(label=="receivedamount")
+    if(label==="receivedamount")
     {
       this.receivedInput.current.focus();
     }
@@ -63,12 +62,11 @@ handleSubmit(e){
     i="";
   amountreceived=document.getElementById("receivedamount").value;
   amountreceived=Math.floor(amountreceived)
-  if(amountreceived != "")
+  if(amountreceived !== "")
   {
     console.log(value);
     value=Math.floor(value)
     currentamount=amountreceived-value;
-    differenceamount=currentamount;
     console.log(currentamount);
     if (currentamount>0)
     {
@@ -110,7 +108,7 @@ handleSubmit(e){
 render(){
   function RcvdAmountContainer(props){ 
   const amountbilled=props.amountbilled;
-  if(amountbilled=="")
+  if(amountbilled==="")
   {
     return(
       <div></div>
