@@ -52,9 +52,6 @@ handleChange(event){
 handleSubmit(e){
   
   e.preventDefault();
-  // document.getElementById("backdrop").style.display = "block";
-  document.getElementById("myModal").style.display = "block";
-  document.getElementById("myModal").classList.add("show")
   denominations={};
   quotient="";
     reminder="";
